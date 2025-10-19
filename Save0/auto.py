@@ -8,25 +8,32 @@ total_y = get_world_size()
 def autoFarm(entity = None, entity_second = None):
     if (entity == None):
         entity = Entities.Grass
-    elif (entity == Entities.Tree):
+    elif (entity == Entities.Tree or entity_second == Entities.Tree):
         if (entity_second == None):
             entity_second = Entities.Grass
     while True: 
         giveWaterIfNeeded()
-        if (entity_second):
-            if ((is_even(get_pos_y()) and is_even(get_pos_x())) or (not is_even(get_pos_y()) and not is_even(get_pos_x()))):
-                farm(entity)
-            else : 
-                farm(entity_second)
-        else: 
-          farm(entity)
-        moveNextCell(total_x, total_y)
+        #special behavior sunflower
+        if(get_pos_x() == 0 or get_pos_x() == 1):
+            farm(Entities.Sunflower)
+            moveNextCell(total_x)
+        else:
+            
+            
+            if (entity_second):
+                if ((is_even(get_pos_y()) and is_even(get_pos_x())) or (not is_even(get_pos_y()) and not is_even(get_pos_x()))):
+                    farm(entity)
+                else : 
+                    farm(entity_second)
+            else: 
+              farm(entity)
+            moveNextCell(total_x)
 
-def autoFarmHay():
+def autoFarmGrass():
     while True: 
         giveWaterIfNeeded()
         farm(Entities.Grass)
-        moveNextCell(total_x, total_y)
+        moveNextCell(total_x)
         
 def autoFarmCarrot():
     while True: 
@@ -34,7 +41,7 @@ def autoFarmCarrot():
         farm(Entities.Carrot)
         moveNextCell(total_x, total_y)
         
-def autoFarmWood(entity = None):
+def autoFarmWTree(entity = None):
     if (entity == None):
         entity = Entities.Grass
     while True:
@@ -44,4 +51,7 @@ def autoFarmWood(entity = None):
         else : 
             farm(entity)
         moveNextCell(total_x, total_y)
+
+#def autoFarmPumpkin():
+    
                 
