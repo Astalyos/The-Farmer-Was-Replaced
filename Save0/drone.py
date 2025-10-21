@@ -1,17 +1,19 @@
-def getCurrentPosition():
+ws = get_world_size()
+
+def curr_pos():
     curr_x = get_pos_x()
     curr_y = get_pos_y()
     return [curr_x, curr_y]
 
-def moveNextCell(total_x):
-    global x
-    if (get_pos_x() != total_x-1):
+def goto_next():
+    global ws
+    if (get_pos_x() != ws-1):
         move(East)
     else :
         move(East)    
         move(North)
         
-def moveTo(target_x, target_y):
+def goto(target_x, target_y):
     # Move along X axis
     while get_pos_x() < target_x:
         move(East)
@@ -24,10 +26,10 @@ def moveTo(target_x, target_y):
     while get_pos_y() > target_y:
         move(South)
         
-def resetPosition():
-    moveTo(0,0)    
+def reset_pos():
+    goto(0,0)    
 
-def doFlip(n):
+def do_flip(n):
     for i in range(n):
         do_a_flip()
 

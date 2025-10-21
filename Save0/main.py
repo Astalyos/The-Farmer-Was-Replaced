@@ -3,9 +3,12 @@ from drone import *
 from auto import *
 
 # autoFarm(Entities.Sunflower)
+petals = dict({12:{(0,0)},8:{(1,0)},10:{(0,1)}})
 
 groundType = Grounds.Soil
 entity = Entities.Sunflower
+
+print(max(petals))
 
 while True:
 
@@ -14,7 +17,11 @@ while True:
     if(get_pos_x() == 0 or get_pos_x() == 1):
         # Special sunflower behavior
         if(isGroundType(groundType)):    
-            #m = measure()
+            m = measure()
+            if (can_harvest() and (m in petals) and max(petals) == m):
+                # Find index of element to harvest
+                for i in range(len(petals[m])):
+                    quick_print(petals[m][i])
             #if (m in petals and max(petals) == m):
             #   petals[m].add(get_pos_x(),get_pos_y())
                     

@@ -1,4 +1,4 @@
 from drone import *
 
 clear()
-resetPosition()
+reset_pos()
