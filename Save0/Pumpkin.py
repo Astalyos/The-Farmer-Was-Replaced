@@ -1,8 +1,9 @@
 from drone import *
 from utils import is_ground_type, give_water
+from Entity_Map import to_ground
 
-gt = Grounds.Soil
 entity = Entities.Pumpkin
+gt = to_ground[entity]
 
 def main():
     goto(0,0)

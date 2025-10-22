@@ -1,16 +1,16 @@
 from drone import *
 from utils import is_ground_type, give_water
-from const import entity_list
+from Function_Map import map_entity_function
 
-entity_list = entity_list()
+entity_function = map_entity_function()
 selected_entity = [Entities.Bush, Entities.Carrot, Entities.Grass, Entities.Tree]
 
 def main():
     clear()
     while True:
         for entity in selected_entity:
-            if (entity in entity_list):
-               entity_list[entity]['function']()
+            if (entity in entity_function):
+               entity_function[entity]()
                use_item(Items.Fertilizer)
             goto_next()
 

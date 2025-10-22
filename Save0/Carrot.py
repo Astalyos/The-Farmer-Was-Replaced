@@ -1,8 +1,9 @@
 from drone import *
 from utils import is_ground_type, give_water
+from Entity_Map import to_ground
 
-gt = Grounds.Soil
 entity = Entities.Carrot
+gt = to_ground(entity)
 
 def main():
     clear()
