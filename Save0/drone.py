@@ -3,14 +3,21 @@ def curr_pos():
     curr_y = get_pos_y()
     return [curr_x, curr_y]
 
-def goto_next():
-    ws = get_world_size()
-    if (get_pos_x() != ws-1):
-        move(East)
-    else :
-        move(East)    
-        move(North)
-        
+def goto_next(axis="row"):
+    if (axis == "row"):
+        if (get_pos_x() != get_world_size()-1):
+            move(East)
+        else :
+            move(East)    
+            move(North)
+            
+    if (axis == "col"):
+        if (get_pos_y() != get_world_size()-1):
+            move(North)
+        else :
+            move(North)    
+            move(East)
+            
 def goto(target_x, target_y):
     # Move along X axis
     while get_pos_x() < target_x:

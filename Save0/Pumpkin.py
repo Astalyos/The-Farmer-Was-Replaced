@@ -77,6 +77,15 @@ def plant_pumpkin():
             harvest()
         plant(entity)
 
+def check_axis(axis):
+    if (not is_healthy_pumpkin()):
+        if (can_harvest() or Entities.Dead_Pumpkin):
+            harvest()
+            
+        # Ground verification
+        if(not is_ground_type(gt)):
+            till()
+        plant(entity)
 
 # To optimize for better rendering
 # 6x6 chunk, find good algorithm

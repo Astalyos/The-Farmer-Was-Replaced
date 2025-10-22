@@ -37,5 +37,6 @@ def farm_carrot():
     plant(entity)
     
 if __name__ == "__main__":
-    quick_farm_carrot()
-    #main()
+    #quick_farm_carrot()
+    set_world_size(4)
+    main()
