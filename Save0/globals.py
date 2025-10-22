@@ -1,0 +1,1 @@
+WS = get_world_size()
