@@ -1,5 +1,5 @@
 from drone import goto_next
-from utils import is_ground_type, give_water
+from utils import is_ground_type, give_water, have_fertilizer
 from Entity_Map import to_ground
 
 entity = Entities.Carrot
@@ -11,6 +11,22 @@ def main():
        farm_carrot()
        goto_next()
 
+def multi_farm_carrot():
+   return false 
+       
+def quick_farm_carrot():
+    clear()
+    while True:
+        give_water()
+        if(can_harvest()):
+            harvest()
+        if(not is_ground_type(gt)):
+            till()
+        plant(entity)
+        if (have_fertilizer()):
+            use_item(Items.fertilizer)
+            use_item(Items.Weird_Substance)
+
 def farm_carrot():
     # Todo : Check if there is materials to plant carrot
     give_water()
@@ -21,4 +37,5 @@ def farm_carrot():
     plant(entity)
     
 if __name__ == "__main__":
-    main()
+    quick_farm_carrot()
+    #main()

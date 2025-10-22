@@ -4,7 +4,7 @@ from Entity_Map import map_entity_ground
 
 entity = Entities.Tree
 grounds = map_entity_ground()
-gt = grounds[entity]
+gt = grounds(entity)
 
 def main(entity_second = None, optimized = True):
     clear()

@@ -3,7 +3,7 @@ from utils import is_ground_type, give_water
 from Entity_Map import to_ground
 
 entity = Entities.Bush
-gt = to_ground[entity]
+gt = to_ground(entity)
 
 def main():
     clear()

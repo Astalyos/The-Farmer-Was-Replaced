@@ -1,12 +1,10 @@
-ws = get_world_size()
-
 def curr_pos():
     curr_x = get_pos_x()
     curr_y = get_pos_y()
     return [curr_x, curr_y]
 
 def goto_next():
-    global ws
+    ws = get_world_size()
     if (get_pos_x() != ws-1):
         move(East)
     else :

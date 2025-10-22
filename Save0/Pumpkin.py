@@ -1,18 +1,22 @@
-from drone import goto_next
+from drone import goto_next, goto
 from utils import is_ground_type, give_water, have_fertilizer
 from Entity_Map import to_ground
 
 entity = Entities.Pumpkin
-gt = to_ground[entity]
+gt = to_ground(entity)
+set_world_size(6)
+valid_pumpkin = 0
 
-method = "optiOneDrone"
-#method = "optiFullDrone"
-#method = "classic"
+#method = "optiOneDronew" # fixed and working, need grid setting
+method = "classic" # fixed and working, need grid setting
+#set_world_size(3)
 
 def farm_pumpkin(method = "optiOneDrone"):
     give_water()
-    if (method === "optiOneDrone"):
+    if (method == "optiOneDrone"):
         plant_healthy_pumpkin(True)
+    elif (method == "classic"):
+        plant_healthy_pumpkin()
     else :
         plant_pumpkin()
 
@@ -24,6 +28,7 @@ def is_healthy_pumpkin():
 
 # PATTERN ONE : We wait until the pumpkin has grown to check if it is healthy or not
 def plant_healthy_pumpkin(use_fertilizer = False):
+    global valid_pumpkin
     # While there isn't "healthy" pumpkin, run in circle
     while (not is_healthy_pumpkin()):
         # if there is something planted, harvest if harvestable
@@ -36,28 +41,41 @@ def plant_healthy_pumpkin(use_fertilizer = False):
 
         # Now the cell should be "None", so until we can harvest again, we loop to use fertilizer if there is       
         plant(entity)
-        while (not can_harvest):
+        
+        # can_harvest() will return false if it is deadpumpkin so we have to make a check for it inside because itr will still loop
+        while (not can_harvest()):
+            if (get_entity_type() == Entities.Dead_Pumpkin):
+                plant(entity)
+                
             # If we want to use fertilizer and we have enough of it
             if (use_fertilizer and have_fertilizer()):
                 use_item(Items.fertilizer)
             else:
                 # We wait until the the pumpkin finish to grow to check if it's a healthy pumpkin
                 pass
-
+                
     # If we reach here, it means the we have a Pumpkin because we are out of the while loop
-
+    valid_pumpkin +=1
+    if (valid_pumpkin == get_world_size() * get_world_size()):
+        harvest()
+        valid_pumpkin = 0
+    
 
 # PATTERN 2 : We want to plant and do the check on the next time the drone pass on the cell
 def plant_pumpkin():
     if (not is_healthy_pumpkin()):
-        if (can_harvest()):
+        if (can_harvest() or Entities.Dead_Pumpkin):
             harvest()
 
         # Ground verification
         if(not is_ground_type(gt)):
             till()
 
-        plant(Entities.Pumpkin)
+        plant(entity)
+    else :
+        if (can_harvest()):
+            harvest()
+        plant(entity)
 
 
 # To optimize for better rendering
@@ -69,6 +87,6 @@ def main():
     while True:
        farm_pumpkin(method)
        goto_next()
-
+       
 if __name__ == "__main__":
     main()

@@ -12,7 +12,7 @@ def have_fertilizer():
         quick_print("Unsufficient Fertilizer")
         return False
 
-def give_water(up_to = 0.75):
+def give_water(up_to = 0.76):
     if (get_water() > up_to):
         return 
         
