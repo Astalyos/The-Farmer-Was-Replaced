@@ -1,4 +1,4 @@
-from drone import *
+from drone import goto_next
 from utils import is_ground_type, give_water
 from Entity_Map import to_ground
 

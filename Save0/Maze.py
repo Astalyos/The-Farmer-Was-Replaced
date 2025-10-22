@@ -1,4 +1,4 @@
-from drone import *
+from drone import goto_next, goto
 
 count = 0
 

@@ -1,4 +1,4 @@
-from drone import *
+from drone import goto_next
 from utils import is_ground_type, give_water
 from Function_Map import map_entity_function
 
