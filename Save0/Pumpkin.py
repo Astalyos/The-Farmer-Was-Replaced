@@ -1,5 +1,5 @@
 from drone import goto_next
-from utils import is_ground_type, give_water
+from utils import is_ground_type, give_water, have_fertilizer
 from Entity_Map import to_ground
 
 entity = Entities.Pumpkin
@@ -15,14 +15,6 @@ def farm_pumpkin(method = "optiOneDrone"):
         plant_healthy_pumpkin(True)
     else :
         plant_pumpkin()
-
-def have_fertilizer():
-    if (num_items(Items.Fertilizer)>=1):
-        return True
-    else: 
-        # Out of fertilizer
-        quick_print("Unsufficient Fertilizer")
-        return False
 
 def is_healthy_pumpkin(): 
     if (get_entity_type() == entity):
