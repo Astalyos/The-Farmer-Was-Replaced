@@ -1,12 +1,11 @@
 from drone import goto_next
-from utils import is_ground_type, give_water
+from utils import is_ground_type, give_water, custom_clear
 from Function_Map import map_entity_function
 
 entity_function = map_entity_function()
 selected_entity = [Entities.Bush, Entities.Carrot, Entities.Grass, Entities.Tree]
 
 def main():
-    clear()
     while True:
         for entity in selected_entity:
             if (entity in entity_function):
@@ -15,4 +14,5 @@ def main():
             goto_next()
 
 if __name__ == "__main__":
+    custom_clear()
     main()

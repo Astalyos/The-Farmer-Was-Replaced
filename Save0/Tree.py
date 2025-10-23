@@ -1,13 +1,14 @@
 from drone import goto_next
-from utils import is_ground_type, give_water, is_even
+from utils import is_ground_type, give_water, is_even, custom_clear
 from Entity_Map import map_entity_ground
 
 entity = Entities.Tree
+entity_second = Entities.Carrot
+
 grounds = map_entity_ground()
 gt = grounds[entity]
 
 def main(entity_second = None, optimized = True):
-    clear()
     while True:
        farm_tree(entity_second, optimized)
        goto_next()
@@ -30,4 +31,5 @@ def farm_tree(entity_second = None, optimized = True):
         plant(entity)
     
 if __name__ == "__main__":
-    main(Entities.Carrot)
+    custom_clear()
+    main(entity_second)

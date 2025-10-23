@@ -1,5 +1,5 @@
 from drone import goto_next
-from utils import is_ground_type, give_water
+from utils import is_ground_type, give_water, custom_clear
 from Entity_Map import to_ground
 
 entity = Entities.Bush
@@ -20,4 +20,5 @@ def farm_bush():
     plant(entity)
     
 if __name__ == "__main__":
+    custom_clear()
     main()

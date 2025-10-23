@@ -1,10 +1,9 @@
 from drone import goto_next, goto
-from utils import is_ground_type, give_water, have_fertilizer
+from utils import is_ground_type, give_water, have_fertilizer, custom_clear
 from Entity_Map import to_ground
 
 entity = Entities.Pumpkin
 gt = to_ground(entity)
-set_world_size(6)
 valid_pumpkin = 0
 
 #method = "optiOneDronew" # fixed and working, need grid setting
@@ -77,6 +76,7 @@ def plant_pumpkin():
             harvest()
         plant(entity)
 
+# todo : create a function that check the whole x or y matching a condition
 def check_axis(axis):
     if (not is_healthy_pumpkin()):
         if (can_harvest() or Entities.Dead_Pumpkin):
@@ -92,10 +92,11 @@ def check_axis(axis):
 
 def main():
     # todo : find WHEN to harvest
-    clear()
     while True:
        farm_pumpkin(method)
        goto_next()
        
 if __name__ == "__main__":
+    custom_clear()
+    set_world_size(6)
     main()

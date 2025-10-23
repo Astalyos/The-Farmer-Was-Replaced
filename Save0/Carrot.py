@@ -1,5 +1,5 @@
 from drone import goto_next
-from utils import is_ground_type, give_water, have_fertilizer
+from utils import is_ground_type, give_water, have_fertilizer, custom_clear
 from Entity_Map import to_ground
 
 entity = Entities.Carrot
@@ -38,5 +38,5 @@ def farm_carrot():
     
 if __name__ == "__main__":
     #quick_farm_carrot()
-    set_world_size(4)
+    custom_clear()
     main()

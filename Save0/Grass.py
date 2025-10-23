@@ -1,5 +1,5 @@
 from drone import goto_next
-from utils import is_ground_type, give_water
+from utils import is_ground_type, give_water, custom_clear
 
 def main():
     clear()
@@ -16,4 +16,5 @@ def farm_grass():
     # no need replant because grass is the default seed for Grounds.Grassland
     
 if __name__ == "__main__":
+    custom_clear()
     main()

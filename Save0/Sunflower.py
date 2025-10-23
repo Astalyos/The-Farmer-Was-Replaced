@@ -4,10 +4,8 @@ from Entity_Map import to_ground
 
 entity = Entities.Sunflower
 gt = to_ground(entity)
-set_world_size(6)
 
 def main():
-    clear()
     while True:
        farm_sunflower()
        goto_next()
@@ -21,4 +19,6 @@ def farm_sunflower():
     plant(entity)
     
 if __name__ == "__main__":
+    custom_clear()
+    set_world_size(6)
     main()
