@@ -24,7 +24,7 @@ def map_entity_item():
     return entity_item
     
 def to_item(entity):
-    return entity_item([entity])
+    return entity_item[entity]
 
 def to_ground(entity):
     return entity_ground[entity]

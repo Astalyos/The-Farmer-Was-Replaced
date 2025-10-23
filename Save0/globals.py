@@ -3,11 +3,11 @@
 
 # World Size and Execution Speed
 # WS = get_world_size()
-WS = 10
+WS = 6
 ES = 0
 
 # Water Limit
-WATER_LIMIT = 0
+WATER_LIMIT = 0.3
 
 # Goto method preference - Shortest VS Simple (lessTick)
 # GOTO_METHOD = "simple"
