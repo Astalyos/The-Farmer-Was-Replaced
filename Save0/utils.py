@@ -1,4 +1,4 @@
-from globals import WS, WATER_LIMIT
+from globals import WS, ES, WATER_LIMIT
 
 def is_even(n):
     return n % 2 == 0
@@ -26,4 +26,7 @@ def custom_clear(force_ws = True):
     if (force_ws):
         # global WS
         set_world_size(WS)
+        
+def debug():
+    set_execution_speed(ES)
     

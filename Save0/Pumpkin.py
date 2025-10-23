@@ -98,5 +98,4 @@ def main():
        
 if __name__ == "__main__":
     custom_clear()
-    set_world_size(6)
     main()

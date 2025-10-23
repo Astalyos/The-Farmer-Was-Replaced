@@ -3,7 +3,7 @@ from utils import is_ground_type, give_water, custom_clear
 from Function_Map import map_entity_function
 
 entity_function = map_entity_function()
-selected_entity = [Entities.Bush, Entities.Carrot, Entities.Grass, Entities.Tree]
+selected_entity = [Entities.Bush, Entities.Carrot, Entities.Tree, Entities.Grass]
 
 def main():
     while True:

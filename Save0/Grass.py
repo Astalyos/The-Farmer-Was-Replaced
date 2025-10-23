@@ -2,7 +2,6 @@ from drone import goto_next
 from utils import is_ground_type, give_water, custom_clear
 
 def main():
-    clear()
     while True:
        farm_grass()
        goto_next()

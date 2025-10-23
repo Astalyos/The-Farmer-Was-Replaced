@@ -6,7 +6,6 @@ entity = Entities.Bush
 gt = to_ground(entity)
 
 def main():
-    clear()
     while True:
        farm_bush()
        goto_next()
