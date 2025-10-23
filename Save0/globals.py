@@ -6,10 +6,8 @@
 WS = 10
 ES = 0
 
-DEBUG = False
-
 # Water Limit
-WATER_LIMIT = 0.76
+WATER_LIMIT = 0
 
 # Goto method preference - Shortest VS Simple (lessTick)
 # GOTO_METHOD = "simple"

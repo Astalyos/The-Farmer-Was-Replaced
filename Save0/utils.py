@@ -1,4 +1,4 @@
-from globals import WS, ES, WATER_LIMIT
+from globals import *
 
 def is_even(n):
     return n % 2 == 0
@@ -15,7 +15,7 @@ def have_fertilizer():
         return False
 
 def give_water(up_to = WATER_LIMIT):
-    if (get_water() > up_to):
+    if (WATER_LIMIT == 0 or get_water() > up_to):
         return 
         
     while (get_water() <= up_to and num_items(Items.Water)>=1):

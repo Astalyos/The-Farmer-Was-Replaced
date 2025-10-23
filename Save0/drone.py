@@ -1,4 +1,4 @@
-from globals import AXIS, WS, GOTO_METHOD, GOTO_NEXT_OPTI
+from globals import *
 from utils import is_even
 
 def get_pos():
@@ -115,7 +115,8 @@ def goto_y(ty):
             move(South)
     # return True # Commenting for now, may use it later
 
-def goto(x,y, method=GOTO_METHOD):
+def goto(target, method=GOTO_METHOD):
+    x , y = target
     # Goto_method is define in globals.py and will be "shortest" or "simple"
     if (method == "shortest"):
         goto_shortest(x,y)
@@ -123,7 +124,7 @@ def goto(x,y, method=GOTO_METHOD):
         goto_simple(x,y)
         
 def reset_pos():
-    goto(0,0)    
+    goto((0,0))    
 
 def do_flip(n):
     for i in range(n):

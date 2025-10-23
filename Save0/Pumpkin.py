@@ -1,14 +1,13 @@
 from drone import goto_next, goto
-from utils import is_ground_type, give_water, have_fertilizer, custom_clear
+from utils import is_ground_type, give_water, have_fertilizer, custom_clear, is_even
 from Entity_Map import to_ground
 
 entity = Entities.Pumpkin
 gt = to_ground(entity)
 valid_pumpkin = 0
 
-#method = "optiOneDronew" # fixed and working, need grid setting
-method = "classic" # fixed and working, need grid setting
-#set_world_size(3)
+method = "optiOneDrone" # fixed and working, need grid setting
+#method = "classic" # fixed and working, need grid setting
 
 def farm_pumpkin(method = "optiOneDrone"):
     give_water()
@@ -49,6 +48,8 @@ def plant_healthy_pumpkin(use_fertilizer = False):
             # If we want to use fertilizer and we have enough of it
             if (use_fertilizer and have_fertilizer()):
                 use_item(Items.fertilizer)
+                if(is_even(get_pos_x() + get_pos_y())):
+                    use_item(Items.Weird_Substance)
             else:
                 # We wait until the the pumpkin finish to grow to check if it's a healthy pumpkin
                 pass
