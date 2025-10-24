@@ -50,19 +50,15 @@ def goto_next(axis=AXIS, opti=GOTO_NEXT_OPTI):
     
     def goto_next_simple():
         if (axis == "row"):
-            if (x != WS-1):
-                move(East)
-            else :
-                move(East)    
+            move(East) 
+            if (x == WS-1):
                 move(North)
             return
                 
         if (axis == "col"):
-            if (y != WS-1):
-                move(North)
-            else :
-                move(North)    
-                move(East)
+            move(North) 
+            if (y == WS-1):
+               move(East)
             return
         
     if (opti):
