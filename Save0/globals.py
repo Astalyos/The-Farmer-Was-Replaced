@@ -16,6 +16,6 @@ GOTO_METHOD = "shortest"
 # Enhance goto_next function, if true, will not cross WS border except on last cell 
 GOTO_NEXT_OPTI = False
 
-# Axis for drone deplacement pattern, ONLY works when GOTO_NEXT_OPTI is False
+# ONLY works when GOTO_NEXT_OPTI is False, Axis for drone deplacement pattern, 
 AXIS = "row"
 #AXIS = "col"
